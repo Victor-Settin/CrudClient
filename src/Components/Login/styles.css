@@ -14,7 +14,11 @@
     display: flex;
 }
 #login form .actions {
+    gap: 10px;
     text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 #eyePassword {
     cursor: pointer;

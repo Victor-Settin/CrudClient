@@ -16,6 +16,10 @@ const GlobalStyle = createGlobalStyle`
         heigth:100vh;
         background-color:#f7f7f7;
     }
+    a{
+        text-decoration:none;
+        color:unset
+    }
 `;
 
 export default GlobalStyle;

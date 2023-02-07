@@ -5,6 +5,7 @@ import Signin from "../pages/Signin";
 import Error404 from "../pages/PageError/Error.js";
 import ListUser from "../pages/User/index.js";
 import UsersRegistered from "../pages/UserSingle/index.js";
+import RegisterUser from "../pages/Register/RegisterUse.js";
 
 const routerPages = createBrowserRouter([
     {
@@ -23,6 +24,10 @@ const routerPages = createBrowserRouter([
     {
         path: "/Users",
         element: <ListUser></ListUser>,
+    },
+    {
+        path: "/register",
+        element: <RegisterUser></RegisterUser>,
     },
     {
         // dynamic route

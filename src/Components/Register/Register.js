@@ -1,11 +1,8 @@
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
-import { Link } from "react-router-dom";
 
-import "./styles.css";
-
-function LoginComponent() {
+function RegisterComponent() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [showPassword, setShowPassword] = useState(false);
@@ -29,6 +26,28 @@ function LoginComponent() {
         };
 
         console.log(infoUser);
+
+        const init = {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(infoUser),
+        };
+
+        fetch("http://localhost:3001/auth/register", init)
+            .then((data) => {
+                if (!data.ok) {
+                    throw Error(data.status);
+                }
+                return data.json();
+            })
+            .then((infoUser) => {
+                console.log(infoUser);
+            })
+            .catch((e) => {
+                console.log(e);
+            });
     };
 
     const handleEmailChange = (e) => {
@@ -44,7 +63,7 @@ function LoginComponent() {
     return (
         <>
             <div id="login" style={{ fontFamily: "'Montserrat', sans-serif" }}>
-                <h1 className="title">Login System</h1>
+                <h1 className="title">Register</h1>
                 <form onSubmit={HandleSubmit}>
                     <div className="field">
                         <label htmlFor="email">Email</label>
@@ -111,11 +130,8 @@ function LoginComponent() {
                                 }
                             }}
                         >
-                            Login
+                            Register
                         </button>
-                        <Link to="/register">
-                            <button type="submit">Register</button>
-                        </Link>
                     </div>
                 </form>
             </div>
@@ -123,4 +139,4 @@ function LoginComponent() {
     );
 }
 
-export default LoginComponent;
+export default RegisterComponent;
