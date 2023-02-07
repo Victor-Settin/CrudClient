@@ -3,6 +3,7 @@ import { useForm } from "react-hook-form";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 
 function RegisterComponent() {
+    const [nome, setNome] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [showPassword, setShowPassword] = useState(false);
@@ -21,6 +22,7 @@ function RegisterComponent() {
         e.preventDefault();
 
         const infoUser = {
+            nome: nome,
             email: email,
             password: password,
         };
@@ -50,6 +52,11 @@ function RegisterComponent() {
             });
     };
 
+    const handleNomeChange = (e) => {
+        setNome(e.target.value);
+        setError("nomeUser", undefined);
+    };
+
     const handleEmailChange = (e) => {
         setEmail(e.target.value);
         setError("emailUser", undefined);
@@ -65,6 +72,22 @@ function RegisterComponent() {
             <div id="login" style={{ fontFamily: "'Montserrat', sans-serif" }}>
                 <h1 className="title">Register</h1>
                 <form onSubmit={HandleSubmit}>
+                    <div className="field">
+                        <label htmlFor="nome">nome</label>
+                        <input
+                            {...register("nomeUser")}
+                            type="text"
+                            name="nome"
+                            id="nome"
+                            value={nome}
+                            onChange={handleNomeChange}
+                        ></input>
+                        {errors.nomeUser && (
+                            <p className="msgError">
+                                {errors.nomeUser.message}
+                            </p>
+                        )}
+                    </div>
                     <div className="field">
                         <label htmlFor="email">Email</label>
                         <input
