@@ -1,0 +1,50 @@
+#login {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: auto;
+    width: 50%;
+    min-height: 100vh;
+    justify-content: center;
+}
+#login .field {
+    padding: 5px 0px;
+}
+#login .field label {
+    display: flex;
+}
+#login form .actions {
+    text-align: center;
+}
+#eyePassword {
+    cursor: pointer;
+    padding-left: 5px;
+}
+.sub_field {
+    display: flex;
+    align-items: center;
+}
+#login input {
+    all: unset;
+    border: 0.5px solid #c4c4c4;
+    border-radius: 2px;
+    margin: 5px 0px;
+    padding-left: 5px;
+    font-size: 13px;
+    height: 23px;
+    width: 90%;
+}
+#login button {
+    all: unset;
+    border: 0.5px solid #c4c4c4;
+    padding: 3px 5px;
+    border-radius: 2px;
+    cursor: pointer;
+}
+#login .msgError {
+    font-size: 9px;
+    color: #f11111;
+}
+#login .actions button {
+    font-size: 14px;
+}
