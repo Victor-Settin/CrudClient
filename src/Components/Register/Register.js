@@ -31,8 +31,10 @@ function RegisterComponent() {
         console.log(infoUser);
 
         axios
-            .post("http://localhost:3001/auth", {
+            .post("http://localhost:3001/auth/register", {
                 nome: nome,
+                email: email,
+                password: password,
             })
             .then(function (response) {
                 console.log(response);
