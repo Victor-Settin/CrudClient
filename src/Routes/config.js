@@ -26,7 +26,7 @@ const routerPages = createBrowserRouter([
         element: <ListUser></ListUser>,
     },
     {
-        path: "/register",
+        path: "/auth/register",
         element: <RegisterUser></RegisterUser>,
     },
     {

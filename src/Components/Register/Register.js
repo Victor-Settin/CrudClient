@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
+import axios from "axios";
 
 function RegisterComponent() {
     const [nome, setNome] = useState("");
@@ -29,26 +30,15 @@ function RegisterComponent() {
 
         console.log(infoUser);
 
-        const init = {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify(infoUser),
-        };
-
-        fetch("http://localhost:3001/auth/register", init)
-            .then((data) => {
-                if (!data.ok) {
-                    throw Error(data.status);
-                }
-                return data.json();
+        axios
+            .post("http://localhost:3001/auth", {
+                nome: nome,
             })
-            .then((infoUser) => {
-                console.log(infoUser);
+            .then(function (response) {
+                console.log(response);
             })
-            .catch((e) => {
-                console.log(e);
+            .catch(function (error) {
+                console.log(error);
             });
     };
 

@@ -113,7 +113,7 @@ function LoginComponent() {
                         >
                             Login
                         </button>
-                        <Link to="/register">
+                        <Link to="auth/register">
                             <button type="submit">Register</button>
                         </Link>
                     </div>
